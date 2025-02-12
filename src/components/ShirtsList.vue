@@ -1,8 +1,12 @@
 <template>
   <div class="container">
-    <h1>Camisetas</h1>
+    <select name="select" class="custom-select">
+      <option selected class="custom-option">Camisetas</option>
+      <option class="custom-option">Regata</option>
+    </select>
+
     <div class="grid">
-      <div v-for="product in products" :key="product.id" class="card">
+      <div v-for="(product, index) in products" :key="index" class="card">
         <div class="img-content">
           <img :src="product.image" :alt="product.title" />
         </div>
@@ -25,7 +29,13 @@
 
 <script>
 import { faker } from "@faker-js/faker";
-import productImage from "../assets/images/camiseta-1.avif";
+
+import shirt1 from "@/assets/images/camiseta-1.avif";
+import shirt2 from "@/assets/images/camiseta-2.avif";
+import shirt3 from "@/assets/images/camiseta-3.avif";
+import shirt4 from "@/assets/images/camiseta-4.avif";
+
+const shirts = [shirt1, shirt2, shirt3, shirt4];
 
 export default {
   data() {
@@ -35,11 +45,11 @@ export default {
   },
   methods: {
     generateProducts(count) {
-      return Array.from({ length: count }, () => ({
+      return Array.from({ length: count }, (_, index) => ({
         title: faker.commerce.productName(),
         description: faker.commerce.productDescription(),
         price: `R$ ${faker.commerce.price(10, 100, 2, ",")}`,
-        image: productImage,
+        image: shirts[index % shirts.length],
       }));
     },
   },
@@ -55,9 +65,18 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 3em;
 
-  > h1 {
-    margin: 0;
+  .custom-select {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid @accent-color;
+    border-radius: 8px;
+    background-color: #fff;
+    color: @primary-color;
+    margin-left: 5em;
+    align-self: flex-start;
   }
 }
 
@@ -71,14 +90,13 @@ export default {
 }
 
 .card {
-  background: #fff;
   width: 400px;
   height: 450px;
   display: flex;
   gap: 20px;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
   text-align: left;
 
   .img-content {
@@ -87,8 +105,7 @@ export default {
     img {
       width: 100%;
       height: 100%;
-      border-radius: 10px;
-      border: 1px solid @accent-color;
+
       object-fit: cover;
     }
   }
@@ -120,9 +137,9 @@ export default {
     > button {
       background: #000;
       color: #fff;
-      font-size: 1em;
+      font-size: 1.3em;
       font-weight: 800;
-      border-radius: 5px;
+
       border: none;
       padding: 5px 15px;
       margin-top: 10px;
@@ -131,10 +148,9 @@ export default {
   }
 }
 
-/* Responsividade */
-@media (max-width: 600px) {
-  .grid {
-    grid-template-columns: 1fr;
+@media (max-width: 800px) {
+  .card {
+    width: 100%;
   }
 }
 </style>

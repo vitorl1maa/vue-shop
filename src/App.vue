@@ -1,10 +1,15 @@
 <script setup lang="ts">
-import ProductList from "./components/ProductList.vue";
+import Navbar from "./components/Navbar.vue";
+import ShirtsList from "./components/ShirtsList.vue";
 </script>
 
 <template>
+  <header>
+    <Navbar />
+  </header>
+
   <main class="container" id="app">
-    <ProductList />
+    <ShirtsList />
   </main>
 </template>
 
@@ -18,7 +23,7 @@ body {
 }
 
 .container {
-  width: 100%;
+  max-width: 100%;
   background: @background-color;
 }
 </style>
