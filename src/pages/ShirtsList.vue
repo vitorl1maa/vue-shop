@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <CategorySelect />
     <h1>
       As melhores camisetas <br />
       da região 👕
@@ -28,6 +29,7 @@
 
 <script>
 import { faker } from "@faker-js/faker";
+import CategorySelect from "@/components/CategorySelect.vue";
 
 import shirt1 from "@/assets/images/camiseta-1.avif";
 import shirt2 from "@/assets/images/camiseta-2.avif";
@@ -37,6 +39,9 @@ import shirt4 from "@/assets/images/camiseta-4.avif";
 const shirts = [shirt1, shirt2, shirt3, shirt4];
 
 export default {
+  components: {
+    CategorySelect,
+  },
   data() {
     return {
       products: this.generateProducts(12),

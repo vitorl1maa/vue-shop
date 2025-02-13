@@ -10,7 +10,6 @@ import CategorySelect from "./components/CategorySelect.vue";
   </header>
 
   <main class="container" id="app">
-    <CategorySelect />
     <router-view />
   </main>
 </template>

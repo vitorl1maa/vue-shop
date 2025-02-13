@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import ShirtsList from "@/pages/ShirtsList.vue";
 import MuscleShirtsList from "@/pages/MuscleShirtsList.vue";
+import CheckoutPage from "@/pages/CheckoutPage.vue"
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/tank-tops',
     name: 'TankTops',
     component: MuscleShirtsList
+  },
+  {
+    path: '/checkout',
+    name: 'CheckoutPage',
+    component: CheckoutPage
   }
 ];
 

@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <CategorySelect />
     <h1>
       Regatas com descontos <br />
       supreendentes ✨
@@ -28,6 +29,7 @@
 
 <script>
 import { faker } from "@faker-js/faker";
+import CategorySelect from "@/components/CategorySelect.vue";
 
 import shirt1 from "@/assets/images/muscle-shirt-1.avif";
 import shirt2 from "@/assets/images/muscle-shirt-2.avif";
@@ -37,6 +39,9 @@ import shirt4 from "@/assets/images/muscle-shirt-4.avif";
 const shirts = [shirt1, shirt2, shirt3, shirt4];
 
 export default {
+  components: {
+    CategorySelect,
+  },
   data() {
     return {
       products: this.generateProducts(12),
@@ -65,7 +70,7 @@ export default {
   align-items: center;
   justify-content: center;
 
-  h1 {
+  > h1 {
     font-size: 5em;
     font-weight: 900;
     text-align: left;
