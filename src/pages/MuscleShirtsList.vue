@@ -1,10 +1,9 @@
 <template>
   <div class="container">
-    <select name="select" class="custom-select">
-      <option selected class="custom-option">Camisetas</option>
-      <option class="custom-option">Regata</option>
-    </select>
-
+    <h1>
+      Regatas com descontos <br />
+      supreendentes ✨
+    </h1>
     <div class="grid">
       <div v-for="(product, index) in products" :key="index" class="card">
         <div class="img-content">
@@ -30,10 +29,10 @@
 <script>
 import { faker } from "@faker-js/faker";
 
-import shirt1 from "@/assets/images/camiseta-1.avif";
-import shirt2 from "@/assets/images/camiseta-2.avif";
-import shirt3 from "@/assets/images/camiseta-3.avif";
-import shirt4 from "@/assets/images/camiseta-4.avif";
+import shirt1 from "@/assets/images/muscle-shirt-1.avif";
+import shirt2 from "@/assets/images/muscle-shirt-2.avif";
+import shirt3 from "@/assets/images/muscle-shirt-3.avif";
+import shirt4 from "@/assets/images/muscle-shirt-4.avif";
 
 const shirts = [shirt1, shirt2, shirt3, shirt4];
 
@@ -65,18 +64,13 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 3em;
 
-  .custom-select {
-    width: 200px;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid @accent-color;
-    border-radius: 8px;
-    background-color: #fff;
-    color: @primary-color;
-    margin-left: 5em;
+  h1 {
+    font-size: 5em;
+    font-weight: 900;
+    text-align: left;
     align-self: flex-start;
+    margin-left: 1em;
   }
 }
 
@@ -149,6 +143,15 @@ export default {
 }
 
 @media (max-width: 800px) {
+  .container {
+    h1 {
+      font-size: 2em;
+      font-weight: 900;
+      text-align: left;
+      align-self: flex-start;
+      margin-left: 0.5em;
+    }
+  }
   .card {
     width: 100%;
   }

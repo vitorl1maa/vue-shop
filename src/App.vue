@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Navbar from "./components/Navbar.vue";
-import ShirtsList from "./components/ShirtsList.vue";
+import ProductList from "./pages/ShirtsList.vue";
+import CategorySelect from "./components/CategorySelect.vue";
 </script>
 
 <template>
@@ -9,7 +10,8 @@ import ShirtsList from "./components/ShirtsList.vue";
   </header>
 
   <main class="container" id="app">
-    <ShirtsList />
+    <CategorySelect />
+    <router-view />
   </main>
 </template>
 
@@ -23,7 +25,8 @@ body {
 }
 
 .container {
-  max-width: 100%;
+  width: 100%;
   background: @background-color;
+  display: flex;
 }
 </style>
