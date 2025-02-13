@@ -19,7 +19,7 @@
 
           <div class="text-footer">
             <span class="price">{{ product.price }}</span>
-            <button>Comprar</button>
+            <button @click="goToCheckout">Comprar</button>
           </div>
         </div>
       </div>
@@ -48,6 +48,9 @@ export default {
     };
   },
   methods: {
+    goToCheckout() {
+      this.$router.push("/checkout");
+    },
     generateProducts(count) {
       return Array.from({ length: count }, (_, index) => ({
         title: faker.commerce.productName(),
