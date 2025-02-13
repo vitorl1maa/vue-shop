@@ -218,18 +218,32 @@ export default {
 
 <style lang="less" scoped>
 @import "../assets/theme.less";
+
 .checkout-container {
   height: 100%;
   margin: auto;
-  padding: 8em 5em;
+  padding: 6em 4em;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
-  gap: 5em;
+  gap: 4em;
+  flex-wrap: wrap;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 4em 2em;
+    gap: 2em;
+  }
 }
 
 .content-form {
   width: 600px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
   h1 {
     text-align: center;
     margin-bottom: 20px;
@@ -252,7 +266,6 @@ export default {
       width: 100%;
       padding: 10px;
       border: 1px solid #e0e0e0;
-
       font-size: 16px;
       box-sizing: border-box;
 
@@ -266,6 +279,10 @@ export default {
   .flex-row {
     display: flex;
     gap: 1.5em;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
   }
 
   .cep {
@@ -279,11 +296,6 @@ export default {
       margin-top: 0;
       color: #fff;
     }
-  }
-
-  .loading {
-    margin-bottom: 20px;
-    color: #999;
   }
 
   button {
@@ -304,11 +316,16 @@ export default {
 
 .content-item {
   width: 500px;
-  height: 450px;
+  height: auto;
   background: #fff;
   border: 1px solid #e0e0e0;
   padding: 10px 2em;
   margin-top: 2em;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 10px 1em;
+  }
 
   > h3 {
     font-size: 2em;
@@ -319,9 +336,14 @@ export default {
 .card-checkout {
   display: flex;
   gap: 2em;
+  flex-wrap: wrap;
 
   img {
     width: 200px;
+
+    @media (max-width: 768px) {
+      width: 150px;
+    }
   }
 
   p {
